@@ -1,0 +1,34 @@
+The 'jls' command gives a listing of the jails currently running on the system:
+
+blue# jls
+   JID  IP Address      Hostname                      Path
+    19  10.10.4.107   druprod.example.com             /usr/jails/j/druprod
+    18  10.10.4.102   ldap.example.com                /usr/jails/j/ldap
+    17  10.10.4.110   ox.example.com                  /usr/jails/j/ox
+    13  10.10.4.105   dns.example.com                 /usr/jails/j/dns
+    12  10.10.4.104   sqltest.initech.com             /usr/jails/j/sqltest
+    10  10.10.4.101   vhs.example.com                 /usr/jails/j/vhs
+     3  10.10.4.106   www.example.com                 /usr/jails/j/www
+     1  10.10.4.103   sql.initech.com                 /usr/jails/j/sql
+
+You can use the 'jk' command to enter the jail based on matching the line
+from the 'jls' output. It will inform you if there is more than one match:
+
+blue# jk sql
+   JID  IP Address      Hostname                      Path
+     1  10.10.4.103   sql.initech.com                 /usr/jails/j/sql
+    12  10.10.4.104   sqltest.initech.com             /usr/jails/j/sqltest
+2 matches.
+#
+
+Specify a unique identifier to enter the jail:
+
+blue# jk sqlt
+Entering jail {sqltest.initech.com, 10.10.4.104, /bin/csh}
+sqltest:blue#
+
+Alternatively, you can specify a JID:
+
+blue# jk -1
+Entering jail {sql.initech.com, 10.10.4.103, /bin/csh}
+sql:blue#
